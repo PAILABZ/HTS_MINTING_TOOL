@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@PAI_LABZ MT 1.0</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    
+    <form action="/mintToken" method="POST">
+
+        <div class="form-group">
+            <label for="numerator">Custom fee percentage:</label>
+            <input type="number" id="numerator" name="numerator">
+        </div>
+
+        <div class="form-group">
+            <label for="tokenName">Token Name:</label>
+            <input type="text" id="tokenName" name="tokenName">
+        </div>
+
+        <div class="form-group">
+            <label for="tokenSymbol">Token Symbol:</label>
+            <input type="text" id="tokenSymbol" name="tokenSymbol">
+        </div>
+
+        <div class="form-group">
+            <label for="decimals">Decimals:</label>
+            <input type="number" id="decimals" name="decimals">
+        </div>
+
+        <div class="form-group">
+            <label for="initialSupply">Initial Supply:</label>
+            <input type="number" id="initialSupply" name="initialSupply">
+        </div>
+
+        <div class="form-group">
+            <label for="maxSupply">Max Supply:</label>
+            <input type="number" id="maxSupply" name="maxSupply">
+        </div>
+
+        <div class="form-group">
+            <label for="userAccountId">Account ID:</label>
+            <input type="text" id="userAccountId" name="userAccountId">
+        </div>
+
+        <div class="form-group">
+            <label for="userPrivateKey">Private Key:</label>
+            <input type="password" id="userPrivateKey" name="userPrivateKey">
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="useAdminKey" name="useAdminKey">
+            <label for="useAdminKey">Admin key</label>
+
+            <input type="checkbox" id="useKycKey" name="useKycKey">
+            <label for="useKycKey">KYC key</label>
+
+            <input type="checkbox" id="useFreezeKey" name="useFreezeKey">
+            <label for="useFreezeKey">Freeze key</label>
+
+            <input type="checkbox" id="useWipeKey" name="useWipeKey">
+            <label for="useWipeKey">Wipe key</label>
+
+            <input type="checkbox" id="useSupplyKey" name="useSupplyKey">
+            <label for="useSupplyKey">Supply key</label>
+
+            <input type="checkbox" id="usePauseKey" name="usePauseKey">
+            <label for="usePauseKey">Pause key</label>
+
+            <input type="checkbox" id="useCustomFees" name="useCustomFees">
+            <label for="useCustomFees">Use Custom Fees</label>
+        </div>
+
+        <div class="form-group">
+            <label for="tokenMemo">Token Memo:</label>
+            <input type="text" id="tokenMemo" name="tokenMemo">
+        </div>
+        <div id="responseMessage"></div>
+
+
+        <div class="radio-group">
+            <label>Network:</label>
+            <input type="radio" id="testnet" name="network" value="testnet" checked>
+            <label for="testnet">Testnet</label>
+            <input type="radio" id="mainnet" name="network" value="mainnet">
+            <label for="mainnet">Mainnet</label>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Mint Token">
+        </div>
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const message = urlParams.get('message');
+    
+            if (message) {
+                document.getElementById('responseMessage').textContent = message;
+            }
+        });
+    </script>
+    
+</body>
+
+</html>
